@@ -144,6 +144,20 @@
 
             Module.dynCall_vi(callback, strPtr);
         }
-    }
+    },
 
+    AddEthereumChain: async function(chainParameter) {
+        const parsedChainParameterStr = UTF8ToString(chainParameter);
+        let parsedChainParameter = JSON.parse(parsedChainParameterStr);
+        await ethereum.request({ method: 'wallet_addEthereumChain', params : [parsedChainParameter]});
+    },
+
+    SwitchEthereumChain: async function(chainId) {
+        const parsedChainId = UTF8ToString(chainId);
+        await ethereum.request({ method: 'wallet_switchEthereumChain', params : [{ chainId: parsedChainId }]});
+    },
+
+    IsConnected: function() {
+        return ethereum.isConnected();
+    }
 });
