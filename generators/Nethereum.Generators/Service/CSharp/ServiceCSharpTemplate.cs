@@ -31,6 +31,12 @@ namespace Nethereum.Generators.Service
 {SpaceUtils.ThreeTabs}ContractHandler = web3.Eth.GetContractHandler(contractAddress);
 {SpaceUtils.TwoTabs}}}
 {SpaceUtils.NoTabs}
+{SpaceUtils.TwoTabs}public {Model.GetTypeName()}(string contractAddress)
+{SpaceUtils.TwoTabs}{{
+{SpaceUtils.ThreeTabs}Web3 = Web3Unity.Web3Connect.Instance.Web3;
+{SpaceUtils.ThreeTabs}ContractHandler = Web3.Eth.GetContractHandler(contractAddress);
+{SpaceUtils.TwoTabs}}}
+{SpaceUtils.NoTabs}
 {SpaceUtils.TwoTabs}public {Model.GetTypeName()}(Nethereum.Web3.IWeb3 web3, string contractAddress)
 {SpaceUtils.TwoTabs}{{
 {SpaceUtils.ThreeTabs}Web3 = web3;
