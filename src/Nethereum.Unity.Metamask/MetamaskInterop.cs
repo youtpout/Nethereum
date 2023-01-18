@@ -1,10 +1,19 @@
-﻿using System;
+﻿using AOT;
+using Nethereum.JsonRpc.Client.RpcMessages;
+using Nethereum.Unity.RpcModel;
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Nethereum.Unity.Metamask
 {
 
-    public class MetamaskInterop
+    public  class MetamaskInterop
     {
         [DllImport("__Internal")]
         public static extern string EnableEthereum(string gameObjectName, string callback, string fallback);
@@ -26,15 +35,6 @@ namespace Nethereum.Unity.Metamask
 
         [DllImport("__Internal")]
         public static extern string RequestRpcClientCallback(Action<string> rpcResponse, string rpcRequest);
-
-        [DllImport("__Internal")]
-        public static extern void AddEthereumChain(string chainParameter);
-
-        [DllImport("__Internal")]
-        public static extern void SwitchEthereumChain(string chainId);
-
-        [DllImport("__Internal")]
-        public static extern bool IsConnected();
 
     }
 
